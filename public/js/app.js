@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
 
 
-    const addBurger = document.getElementById('create-form');
+    const addBurger = document.getElementById('add-form');
 
     if (addBurger) {
         addBurger.addEventListener('submit', (e) => {
