@@ -7,7 +7,7 @@
       {{#unless this.devoured}}
         <li>
           {{this.id}}
-          {{this.burger-name}}
+          {{this.burger_name}}
 
           <form action="/" method="POST">
             <input type="text" name="devoured">
@@ -23,7 +23,7 @@
       {{#if this.devoured}}
         <li>
           {{this.id}}
-          {{this.burger-name}}
+          {{this.burger_name}}
         </li>
       {{/if}}
     {{/each}}
@@ -35,7 +35,7 @@
 
     <div class="form-group">
       <label for="ca">Burger Name:</label>
-      <input type="text" id="ca" name="burger-name">
+      <input type="text" id="ca" name="burger_name">
     </div>
 
     <button type="submit">Add Burger</button>
