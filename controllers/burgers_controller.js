@@ -15,13 +15,14 @@ router.get('/', (req, res) => {
     });
 });
 
-router.post('/api/burger', (req, res) => {
+router.post('/', (req, res) => {
     burger.create(['burger_name', 'devoured'], [req.body.burger_name, req.body.devoured], (result) =>{
-        res.json({ id: result.insertId });
+        // res.json({ id: result.insertId });
+        res.render('index', hbsObject);
     });
 });
 
-router.put('/api/burger/:id', (req, res) => {
+router.put('/:id', (req, res) => {
     const condition = `id = ${req.params.id}`;
     console.log('condition', condition);
     burger.update(
