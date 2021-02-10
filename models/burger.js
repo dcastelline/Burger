@@ -9,10 +9,10 @@ const burger = {
     },
     // The variables cols and vals are arrays.
     create(cols, vals, cb) {
-      orm.insertOne('cats', cols, vals, (res) => cb(res));
+      orm.insertOne('burgers', cols, vals, (res) => cb(res));
     },
     update(objColVals, condition, cb) {
-      orm.updateOne('cats', objColVals, condition, (res) => cb(res));
+      orm.updateOne('burgers', objColVals, condition, (res) => cb(res));
     },
   };
 
