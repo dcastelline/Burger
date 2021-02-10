@@ -1,14 +1,12 @@
 // Require connection.js
 const connection = require('./connection.js');
 
-// Helper function for adding ?s
+// Helper function for SQL
 const printQuestionMarks = (num) => {
     const arr = [];
-
     for (let i = 0; i< num; i++) {
         arr.push('?');
     }
-
     return arr.toString();
 };
 
@@ -17,21 +15,17 @@ const objToSql = (ob) => {
     const arr = [];
 
     for (const key in ob) {
-        let value = ob[key];
-
         if (Object.hasOwnProperty.call(ob, key)) {
-            if (typeof value === 'string' && value.indexOf(' ') >= 0) {
-                value = `${value}`;
-            }
+            arr.push(key + '=' + ob[key]);
         }
     }
     return arr.toString();
-}
+};
 
 // Methods
 const orm = {
     all(tableInput, cb) {
-        const queryString = `SELECT * FROM ${tableInput}`;
+        let queryString = `SELECT * FROM ${tableInput}`;
         connection.query(queryString, (err, result) => {
             if (err) {
                 throw err;
@@ -55,20 +49,21 @@ const orm = {
             if (err) {
                 throw err;
             }
-
             cb(result);
         });
     },
-    delete(table, condition, cb) {
-        let queryString = `DELETE FROM ${table}`;
-        queryString += 'WHERE ';
+    update(table, objColVals, condition, cb) {
+        let queryString = `UPDATE ${table}`;
+
+        queryString += ' SET ';
+        queryString += objToSql(objColVals);
+        queryString += ' WHERE ';
         queryString += condition;
 
         connection.query(queryString, (err, result) => {
             if (err) {
                 throw err;
             }
-
             cb(result);
         });
     },
