@@ -5,6 +5,9 @@
   ## Description
   Eat-Da-Burger is an app developed using MySQL, Node, Express, and Express-Handlebars.  The app is to allow a user to create a list of burgers they would like to eat, then track which ones they have eaten.
 
+  ## Heroku
+  App deployed to Heroku: https://dc-burger.herokuapp.com/
+
   ## Table of Contents
   - [Usage](#usage)
   - [License](#license)
