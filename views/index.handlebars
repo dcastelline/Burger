@@ -4,10 +4,10 @@
   <h2>Burgers to be Eaten</h2>
   <ul>
     {{#each burger}}
-      {{#unless this.devoured}}
+      {{#unless devoured}}
         <li>
-          {{this.id}}
-          {{this.burger_name}}
+          {{id}}
+          {{burger_name}}
 
           <form action="/" method="POST">
             <input type="text" name="devoured">
@@ -20,10 +20,10 @@
   <h2>Burgers Eaten</h2>
   <ul>
     {{#each burger}}
-      {{#if this.devoured}}
+      {{#if devoured}}
         <li>
-          {{this.id}}
-          {{this.burger_name}}
+          {{id}}
+          {{burger_name}}
         </li>
       {{/if}}
     {{/each}}
